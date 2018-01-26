@@ -8,7 +8,8 @@ class App extends Component {
 
     
         this.state = {
-            filmArray: []
+            filmArray: [],
+            buttonChecker: false
         }
 
     }
@@ -19,8 +20,17 @@ class App extends Component {
         .then(obj => this.setState({filmArray: obj}));
     }
 
+    handleBtnClick() {
+        if (this.state.buttonChecker === false) {
+            this.setState({buttonChecker: true});
+        } else {
+            this.setState({buttonChecker: false});
+        }
+    }
+
     render() {
         let movieCards = this.state.filmArray.map((film, id) => {
+            if (this.state.buttonChecker === true) {
             return (
                 <div className="card col-sm-5 m-1 p-3" key={id} style={{width: 18 + 'rem'}}>
                     <img className="card-img-top" src="https://ilikeswhatilikes.files.wordpress.com/2013/08/ghibli___finish_work_by_hyung86.jpg" />
@@ -31,22 +41,24 @@ class App extends Component {
                         <button href="#" className="btn btn-primary">Go somewhere</button>
                     </div>
                 </div>
-            )});
+            )}});
         return (
             <React.Fragment>
-            <div className="jumbotron jumbotron-fluid d-flex justify-content-center">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png"/>
-            </div>
-            <div className="container">
-                <div className="row d-flex justify-content-between">
-                    {movieCards}
+                <div className="jumbotron jumbotron-fluid d-flex justify-content-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png"/>
                 </div>
-            </div>
+                <div className="container text-center">
+                    <button className="btn btn-primary text-center m-1" onClick={() => {this.handleBtnClick()}} >Load Films</button>
+                    <a className="btn btn-primary text-center m-1" href="https://www.youtube.com/watch?v=jAPRt-I0-m8">Play All Movies</a>
+                </div>
+                <div className="container">
+                    <div className="row d-flex justify-content-between">
+                        {movieCards}
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
-    
-    
 }
 
 export default App;
