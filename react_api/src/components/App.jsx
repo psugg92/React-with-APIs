@@ -13,7 +13,9 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron />
+                <div className="jumbotron jumbotron-fluid d-flex justify-content-center">
+                    <Jumbotron />
+                </div>
                 <Router>
                     <React.Fragment>
                     <div className="container d-flex justify-content-center">

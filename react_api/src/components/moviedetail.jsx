@@ -26,7 +26,7 @@ class movieDetail extends Component {
                     <h5 className="card-title">{filmDetail.title}</h5>
                     <p className="card-text">{filmDetail.description}</p>
                     <p className="card-text font-weight-bold">Release Date: {filmDetail.release_date}</p>
-                    <a className="btn btn-primary text-center m-1" href="https://www.youtube.com/watch?v=jAPRt-I0-m8">Play Movie</a>
+                    <a className="btn btn-primary text-center m-1" href="https://www.youtube.com/watch?v=I7Tps0M-l64">Play Movie</a>
                 </div>
             </div>
             )
