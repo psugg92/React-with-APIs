@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'isomorphic-fetch';
 import 'es6-promise';
+import '../img.css'
 
 class Jumbotron extends Component {
     
